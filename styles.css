@@ -1,0 +1,207 @@
+/* 🌌 Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #0f0f1a, #050510, #000);
+  color: #8b76b3;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* 🎨 Neon Variables */
+:root {
+  --neon-blue: #00f5ff;
+  --neon-purple: #a020f0;
+  --neon-pink: #ff2bd6;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text: #e0e0ff;
+}
+
+/* 🌐 Navbar */
+.navbar {
+  background: rgba(10, 10, 25, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+.navbar-brand {
+  color: var(--neon-blue);
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+.nav-link {
+  color: var(--text);
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* 🚀 Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0d0d1a, #050510);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--neon-purple);
+  text-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-pink);
+}
+.btn-cta {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+  color: rgb(12, 1, 1);
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 0 15px var(--neon-blue);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-cta:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--neon-blue);
+}
+
+/* 💎 Glassmorphic Cards */
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple);
+}
+
+/* 📊 Skills Bars */
+.skill {
+  margin-bottom: 1.5rem;
+}
+.skill-title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+.skill-bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+  height: 1rem;
+  width: 0;
+  animation: loadSkill 2s forwards;
+  border-radius: 30px;
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+@keyframes loadSkill {
+  from { width: 0; }
+  to { width: 85%; }
+}
+
+/* 🎭 Portfolio Overlay */
+.portfolio-item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.portfolio-item .overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(10, 0, 30, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.portfolio-item:hover .overlay {
+  opacity: 1;
+}
+.overlay .icon {
+  color: var(--neon-blue);
+  font-size: 2.5rem;
+  text-shadow: 0 0 15px var(--neon-pink);
+  transition: transform 0.3s;
+}
+.overlay .icon:hover {
+  transform: scale(1.2);
+}
+
+/* 📄 Resume & Contact */
+#resume .btn {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 12px var(--neon-purple);
+}
+.contact-info i,
+footer i {
+  color: var(--neon-pink);
+  margin-right: 0.5rem;
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+
+
+/* 📱 Responsive */
+@media (max-width: 767px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  .navbar .navbar-nav {
+    text-align: center;
+  }
+}
+
+/* 🌟 Projects Section */
+.portfolio-item h3,
+.portfolio-item p {
+  color: #000;  /* black text */
+  text-shadow: none; /* remove neon glow for readability */
+}
+
+/* Overlay text in portfolio */
+.portfolio-item .overlay {
+  color: #000;  /* black overlay text */
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* 🌟 Footer Section */
+footer {
+  background: rgba(10, 10, 25, 0.8);
+  backdrop-filter: blur(12px);
+  color: #000;   /* black text */
+  text-shadow: none;
+}
+
+footer a,
+footer i {
+  color: #000;   /* black links + icons */
+  text-shadow: none;
+}
+
+footer a:hover {
+  color: #000;   /* keep hover black */
+  text-shadow: none;
+}
